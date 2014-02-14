@@ -60,6 +60,8 @@ public class Simple1 extends javax.swing.JDialog {
         jSeparator1 = new JSeparator();
         jRadioButton4 = new JRadioButton();
         jButton3 = new JButton();
+        simpleButton = new JButton();
+        advancedButton = new JButton();
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -89,15 +91,36 @@ public class Simple1 extends javax.swing.JDialog {
 
         buttonGroup1.add(jRadioButton2);
         jRadioButton2.setText("Latest setting");
+        jRadioButton2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton3);
         jRadioButton3.setText("Choose between earlier setups");
+        jRadioButton3.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jRadioButton3ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(jRadioButton4);
         jRadioButton4.setText("New advanced setup");
+        jRadioButton4.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jRadioButton4ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Next");
         jButton3.setEnabled(false);
+
+        simpleButton.setText("Simple");
+        simpleButton.setEnabled(false);
+
+        advancedButton.setText("Advanced");
+        advancedButton.setEnabled(false);
 
         GroupLayout layout = new GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -107,31 +130,39 @@ public class Simple1 extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(Alignment.LEADING)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton3)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton1)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
                         .addGroup(layout.createParallelGroup(Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                        .addGap(11, 11, 11)
+                            .addComponent(jRadioButton3)
+                            .addComponent(jRadioButton2))
+                        .addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(simpleButton))
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jSpinner1, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(Alignment.LEADING, false)
-                            .addComponent(jLabel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jSpinner2))
-                        .addGap(18, 18, 18)
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton1)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jComboBox2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                .addGap(11, 11, 11)
+                                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jSpinner1, GroupLayout.PREFERRED_SIZE, 64, GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(ComponentPlacement.RELATED)
+                                .addGroup(layout.createParallelGroup(Alignment.LEADING, false)
+                                    .addComponent(jLabel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jSpinner2))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+                                    .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(Alignment.LEADING)
-                            .addComponent(jComboBox1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4))))
-                .addContainerGap())
-            .addGroup(Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton3)
+                            .addComponent(jButton3, Alignment.TRAILING)
+                            .addComponent(advancedButton, Alignment.TRAILING))))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -155,14 +186,19 @@ public class Simple1 extends javax.swing.JDialog {
                                 .addComponent(jSpinner1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jSpinner2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
-                .addComponent(jRadioButton2)
-                .addPreferredGap(ComponentPlacement.RELATED)
-                .addComponent(jRadioButton3)
+                .addGroup(layout.createParallelGroup(Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jRadioButton2)
+                        .addPreferredGap(ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton3))
+                    .addComponent(simpleButton, Alignment.TRAILING))
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 10, GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jRadioButton4)
-                .addPreferredGap(ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
+                .addPreferredGap(ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                .addComponent(advancedButton)
+                .addPreferredGap(ComponentPlacement.RELATED)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -171,8 +207,24 @@ public class Simple1 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jRadioButton1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
-        jButton3.setEnabled(true);
+        simpleButton.setEnabled(true);
+        advancedButton.setEnabled(false);
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        simpleButton.setEnabled(true);
+        advancedButton.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jRadioButton3ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jRadioButton3ActionPerformed
+        simpleButton.setEnabled(true);
+        advancedButton.setEnabled(false);
+    }//GEN-LAST:event_jRadioButton3ActionPerformed
+
+    private void jRadioButton4ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jRadioButton4ActionPerformed
+        simpleButton.setEnabled(false);
+        advancedButton.setEnabled(true);
+    }//GEN-LAST:event_jRadioButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -216,6 +268,7 @@ public class Simple1 extends javax.swing.JDialog {
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private JButton advancedButton;
     private ButtonGroup buttonGroup1;
     private JButton jButton3;
     private JComboBox jComboBox1;
@@ -231,5 +284,6 @@ public class Simple1 extends javax.swing.JDialog {
     private JSeparator jSeparator1;
     private JSpinner jSpinner1;
     private JSpinner jSpinner2;
+    private JButton simpleButton;
     // End of variables declaration//GEN-END:variables
 }

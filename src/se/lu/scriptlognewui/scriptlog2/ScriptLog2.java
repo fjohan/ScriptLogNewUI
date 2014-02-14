@@ -168,9 +168,13 @@ public class ScriptLog2 extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jMenuItem1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Simple1 s1 = new Simple1(this, rootPaneCheckingEnabled);
-        s1.setLocation(100, 100);
-        s1.setVisible(rootPaneCheckingEnabled);
+        SimpleJIF sjif = new SimpleJIF(jDesktopPane1);
+        sjif.setLocation(100, 100);
+        sjif.setVisible(true);
+//        Simple1 s1 = new Simple1(this, rootPaneCheckingEnabled);
+//        s1.setLocation(100, 100);
+//        s1.setVisible(rootPaneCheckingEnabled);
+        
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
