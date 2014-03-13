@@ -182,11 +182,18 @@ public class ScriptLog2 extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jMenuItem1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        SimpleSetupFrame sf = new SimpleSetupFrame();
+        SimpleSetupFrame ssf = new SimpleSetupFrame();
         //sf.setLocation(100,100);
-        sf.setVisible(true);
-        jDesktopPane1.add(sf);
-        
+        ssf.setVisible(true);
+        jDesktopPane1.add(ssf);
+        try {
+            ssf.setSelected(true);
+        } catch (java.beans.PropertyVetoException e) {
+        }
+//        SimpleJIF sjif = new SimpleJIF(jDesktopPane1);
+//        sjif.setLocation(100, 100);
+//        sjif.setVisible(true);
+//        sjif.addMe();
 //        Simple1 s1 = new Simple1(this, rootPaneCheckingEnabled);
 //        s1.setLocation(100, 100);
 //        s1.setVisible(rootPaneCheckingEnabled);
