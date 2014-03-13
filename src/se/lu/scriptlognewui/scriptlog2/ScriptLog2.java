@@ -60,6 +60,8 @@ public class ScriptLog2 extends javax.swing.JFrame {
         helpMenu = new JMenu();
         contentsMenuItem = new JMenuItem();
         aboutMenuItem = new JMenuItem();
+        jMenu3 = new JMenu();
+        jMenuItem7 = new JMenuItem();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setExtendedState(MAXIMIZED_BOTH);
@@ -147,6 +149,18 @@ public class ScriptLog2 extends javax.swing.JFrame {
 
         menuBar.add(helpMenu);
 
+        jMenu3.setText("Frames");
+
+        jMenuItem7.setText("New ScriptLogFrame");
+        jMenuItem7.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jMenuItem7ActionPerformed(evt);
+            }
+        });
+        jMenu3.add(jMenuItem7);
+
+        menuBar.add(jMenu3);
+
         setJMenuBar(menuBar);
 
         GroupLayout layout = new GroupLayout(getContentPane());
@@ -168,10 +182,21 @@ public class ScriptLog2 extends javax.swing.JFrame {
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
     private void jMenuItem1ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        Simple1 s1 = new Simple1(this, rootPaneCheckingEnabled);
-        s1.setLocation(100, 100);
-        s1.setVisible(rootPaneCheckingEnabled);
+        SimpleSetupFrame sf = new SimpleSetupFrame();
+        //sf.setLocation(100,100);
+        sf.setVisible(true);
+        jDesktopPane1.add(sf);
+        
+//        Simple1 s1 = new Simple1(this, rootPaneCheckingEnabled);
+//        s1.setLocation(100, 100);
+//        s1.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem7ActionPerformed(ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+        ScriptLogFrame slf = new ScriptLogFrame();
+        slf.setVisible(true);
+        jDesktopPane1.add(slf);
+    }//GEN-LAST:event_jMenuItem7ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -221,12 +246,14 @@ public class ScriptLog2 extends javax.swing.JFrame {
     private JDesktopPane jDesktopPane1;
     private JMenu jMenu1;
     private JMenu jMenu2;
+    private JMenu jMenu3;
     private JMenuItem jMenuItem1;
     private JMenuItem jMenuItem2;
     private JMenuItem jMenuItem3;
     private JMenuItem jMenuItem4;
     private JMenuItem jMenuItem5;
     private JMenuItem jMenuItem6;
+    private JMenuItem jMenuItem7;
     private Separator jSeparator1;
     private Separator jSeparator2;
     private Separator jSeparator3;
