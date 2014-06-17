@@ -4,18 +4,23 @@
  */
 package se.lu.scriptlognewui.scriptlog2;
 
+import javax.swing.JLayeredPane;
+
 /**
  *
  * @author ling-jfr
  */
 public class ScriptLogBase extends javax.swing.JFrame {
 
+        MessagePane mp;
     /**
      * Creates new form ScriptLogBase
      */
     public ScriptLogBase() {
         initComponents();
         
+        openMessagePane();
+        openIncludedFontTesterFrame();
         
         
     }
@@ -41,6 +46,9 @@ public class ScriptLogBase extends javax.swing.JFrame {
         copyMenuItem = new javax.swing.JMenuItem();
         pasteMenuItem = new javax.swing.JMenuItem();
         deleteMenuItem = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         helpMenu = new javax.swing.JMenu();
         contentMenuItem = new javax.swing.JMenuItem();
         aboutMenuItem = new javax.swing.JMenuItem();
@@ -96,6 +104,26 @@ public class ScriptLogBase extends javax.swing.JFrame {
 
         menuBar.add(editMenu);
 
+        jMenu1.setText("Frames");
+
+        jMenuItem1.setText("IncludedFontTester");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setText("MessagePane");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        menuBar.add(jMenu1);
+
         helpMenu.setMnemonic('h');
         helpMenu.setText("Help");
 
@@ -129,6 +157,14 @@ public class ScriptLogBase extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exitMenuItemActionPerformed
 
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        openIncludedFontTesterFrame();
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        openMessagePane();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -158,6 +194,7 @@ public class ScriptLogBase extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new ScriptLogBase().setVisible(true);
             }
@@ -174,10 +211,27 @@ public class ScriptLogBase extends javax.swing.JFrame {
     private javax.swing.JMenuItem exitMenuItem;
     private javax.swing.JMenu fileMenu;
     private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openMenuItem;
     private javax.swing.JMenuItem pasteMenuItem;
     private javax.swing.JMenuItem saveAsMenuItem;
     private javax.swing.JMenuItem saveMenuItem;
     // End of variables declaration//GEN-END:variables
+
+    private void openIncludedFontTesterFrame() {
+        IncludedFontTester ift = new IncludedFontTester(mp.getjTextArea1());
+        desktopPane.add(ift, JLayeredPane.DEFAULT_LAYER);
+        ift.setVisible(true);
+    }
+
+    private void openMessagePane() {
+        mp = new MessagePane();
+        desktopPane.add(mp, JLayeredPane.DEFAULT_LAYER);
+        mp.setLocation(400, 0);
+        mp.setBounds(400, 0, 600, 400);
+        mp.setVisible(true);
+    }
 }
